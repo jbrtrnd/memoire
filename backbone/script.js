@@ -1,4 +1,4 @@
-/*var Task = Backbone.Model.extend({
+﻿var Task = Backbone.Model.extend({
 	defaults: function() {
   		return {
     		title: '',
@@ -117,30 +117,4 @@ var ContainerView = Backbone.View.extend({
 		console.log('Execution time: ' + time + 'ms');
     }
 });
-var Container = new ContainerView(); */
-
-
-
-
-
-var Message = Backbone.Model.extend({
-    defaults: function() {
-        return {
-            content: 'Hello World !',
-        };
-    }
-});
-
-var MessageView = Backbone.View.extend({
-	el: $('body'),
-	initialize: function() {
-		this.message = new Message();
-		this.listenTo(this.message, 'change', this.render);
-		this.render();
-	},
-	render: function () {
-		$(this.el).html(this.message.get('content'));
-	}
-});
-
-var messageView = new MessageView();
+var Container = new ContainerView();
