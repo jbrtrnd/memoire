@@ -1,4 +1,4 @@
-
+﻿
 var TaskContainer = React.createClass({
 	getInitialState: function() {
 	    return {
@@ -202,6 +202,6 @@ var PerformanceCheck = React.createClass({
 });
 
 ReactDOM.render(
-	<TaskContainer />
+	<TaskContainer />,
 	document.getElementById('content')
 );
