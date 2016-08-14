@@ -1,4 +1,4 @@
-var createTaskForm = document.querySelector('#create-task-form');
+﻿var createTaskForm = document.querySelector('#create-task-form');
 var taskList       = document.querySelector('#task-list');
 
 createTaskForm.addEventListener('submit', function(event) {
@@ -11,7 +11,11 @@ createTaskForm.addEventListener('submit', function(event) {
 });
 
 function createTask(title) {
-	taskList.innerHTML = '<div class="task todo">' + title + ' <i class="fa fa-check-circle" onclick="toggleStatus(this);"></i></div>' + taskList.innerHTML;
+	var div = document.createElement('div');
+	div.innerHTML = title + ' <i class="fa fa-check-circle" onclick="toggleStatus(this);"></i>';
+	div.className = 'task';
+
+	taskList.appendChild(div);
 };
 
 function toggleStatus(element) {
