@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../style.css" />
+	</head>
+	<body ng-app="todo" ng-controller="taskController as self">
+		<button type="button" ng-click="self.performanceCheck();">Performance test</button>
+		<div class="container">
+			<form id="create-task-form" name="createTaskForm" ng-submit="self.createTask();">
+				<div class="create-container row">
+					<div class="col col-input">
+						<input type="text" name="title" placeholder="Nouvelle tâche" ng-model="self.task.title" />
+					</div>
+					<div class="col col-submit">
+						<button type="submit">
+							<i class="fa fa-plus-circle"></i>
+						</button>
+					</div>
+				</div>
+			</form>
+			<div id="task-list">
+				<div class="task" ng-repeat="task in self.tasks | filter: { status: self.filter }" ng-class="{todo: task.status == 'todo', done: task.status == 'done'}">
+					{{task.title}}
+
+					<i class="fa fa-check-circle" ng-click="task.toggleStatus()"></i>
+				</div>
+			</div>
+			<div class="task-filters row">
+				<div class="col">
+					<button id="filter-all" type="button" ng-class="{active: self.filter == 'all'}" ng-click="self.filter = ''">
+						Toutes
+					</button>
+				</div>
+				<div class="col">
+					<button id="filter-todo" type="button" ng-class="{active: self.filter == 'todo'}" ng-click="self.filter = 'todo'">
+						A Faire
+					</button>
+				</div>
+				<div class="col">
+					<button id="filter-done" type="button" ng-class="{active: self.filter == 'done'}" ng-click="self.filter = 'done'">
+						Faite
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+		<script type="text/javascript" src="./script.js"></script>
+	</body>
+</html>

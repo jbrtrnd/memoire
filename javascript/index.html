@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../style.css" />
+	</head>
+	<body>
+		<button type="button" onclick="performanceCheck();">Performance test</button>
+		<div class="container">
+			<form id="create-task-form">
+				<div class="create-container row">
+					<div class="col col-input">
+						<input type="text" name="title" placeholder="Nouvelle tâche" />
+					</div>
+					<div class="col col-submit">
+						<button type="submit">
+							<i class="fa fa-plus-circle"></i>
+						</button>
+					</div>
+				</div>
+			</form>
+			<div id="task-list">
+
+			</div>
+			<div class="task-filters row">
+				<div class="col">
+					<button type="button" class="active" onclick="filter('all', this)">
+						Toutes
+					</button>
+				</div>
+				<div class="col">
+					<button type="button" onclick="filter('todo', this)">
+						A Faire
+					</button>
+				</div>
+				<div class="col">
+					<button type="button" onclick="filter('done', this)">
+						Faite
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="./script.js"></script>
+	</body>
+</html>
